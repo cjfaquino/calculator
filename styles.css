@@ -1,0 +1,8 @@
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.btn00 {
+  grid-column: span 2;
+}
