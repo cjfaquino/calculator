@@ -1,8 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 .wrapper {
   width: 400px;
   margin: 0 auto;
 }
-
+#display {
+  width: 100%;
+  text-align: right;
+}
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
