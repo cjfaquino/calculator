@@ -37,12 +37,13 @@ function updateCurrentValue() {
 function populateDisplay() {
   if(this.textContent === '0' || Number(this.textContent)) {
     if(display.value === '0') display.value = this.textContent
-    else display.value += this.textContent
+    else display.value += this.textContent;
+    updateCurrentValue();
   };
   if(this.textContent === 'AC') clearDisplay();
-  updateCurrentValue();
 }
 
 function clearDisplay() {
   display.value = 0;
+  updateCurrentValue();
 }
