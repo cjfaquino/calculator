@@ -15,6 +15,70 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.btn00 {
+.btnClr,
+.btnNeg,
+.btnPer,
+.btnDiv {
+  order: 0;
+}
+
+.btn7 {
+  order: 6;
+}
+
+.btn8 {
+  order: 7;
+}
+
+.btn9 {
+  order: 8;
+}
+
+.btnMul {
+  order: 9;
+}
+
+.btn4 {
+  order: 10;
+}
+
+.btn5 {
+  order: 11;
+}
+
+.btn6 {
+  order: 12;
+}
+
+.btnSub {
+  order: 13;
+}
+
+.btn1 {
+  order: 14;
+}
+
+.btn2 {
+  order: 15;
+}
+
+.btn3 {
+  order: 16;
+}
+
+.btnAdd {
+  order: 17;
+}
+
+.btn0 {
   grid-column: span 2;
+  order: 18;
+}
+
+.btnDec {
+  order: 19;
+}
+
+.btnEq {
+  order: 20;
 }
