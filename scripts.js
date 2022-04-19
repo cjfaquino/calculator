@@ -48,6 +48,6 @@ function clearDisplay() {
 }
 
 function useOperators() {
-  if(this.textContent === 'AC') clearDisplay();
+  if(this.value === 'AC') clearDisplay();
   console.log(this.value);
 }
