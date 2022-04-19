@@ -1,7 +1,10 @@
 const display = document.getElementById('display');
-let currentValue = display.value;
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach(button => button.addEventListener('click', populateDisplay))
+display.addEventListener('input', updateCurrentValue)
+
+let currentValue = display.value;
 
 function add(a, b) {
   return a + b
@@ -26,12 +29,18 @@ function operate(operator, currentValue, nextValue) {
   if(operator === divide) return divide(currentValue, nextValue);
 }
 
+function updateCurrentValue() {
+  currentValue = display.value;
+  console.log(currentValue);
+}
+
 function populateDisplay() {
   if(this.textContent === '0' || Number(this.textContent)) {
     if(display.value === '0') display.value = this.textContent
     else display.value += this.textContent
   };
   if(this.textContent === 'AC') clearDisplay();
+  updateCurrentValue();
 }
 
 function clearDisplay() {
