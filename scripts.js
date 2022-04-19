@@ -31,4 +31,9 @@ function populateDisplay() {
     if(display.value === '0') display.value = this.textContent
     else display.value += this.textContent
   };
+  if(this.textContent === 'AC') clearDisplay();
+}
+
+function clearDisplay() {
+  display.value = 0;
 }
