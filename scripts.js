@@ -1,7 +1,9 @@
 const display = document.getElementById('display');
-const buttons = document.querySelectorAll('button');
+const numbers = document.querySelectorAll('.numbers');
+const operators = document.querySelectorAll('.operators')
 
-buttons.forEach(button => button.addEventListener('click', populateDisplay))
+numbers.forEach(button => button.addEventListener('click', populateDisplay))
+operators.forEach(button => button.addEventListener('click', useOperators))
 display.addEventListener('input', updateCurrentValue)
 
 let currentValue = display.value;
@@ -23,10 +25,10 @@ function divide(a, b) {
 }
 
 function operate(operator, currentValue, nextValue) {
-  if(operator === add) return add(currentValue, nextValue);
-  if(operator === subtract) return subtract(currentValue, nextValue);
-  if(operator === multiply) return multiply(currentValue, nextValue);
-  if(operator === divide) return divide(currentValue, nextValue);
+  if(operator === 'add') return add(currentValue, nextValue);
+  if(operator === 'subtract') return subtract(currentValue, nextValue);
+  if(operator === 'multiply') return multiply(currentValue, nextValue);
+  if(operator === 'divide') return divide(currentValue, nextValue);
 }
 
 function updateCurrentValue() {
@@ -35,15 +37,17 @@ function updateCurrentValue() {
 }
 
 function populateDisplay() {
-  if(this.textContent === '0' || Number(this.textContent)) {
     if(display.value === '0') display.value = this.textContent
     else display.value += this.textContent;
     updateCurrentValue();
-  };
-  if(this.textContent === 'AC') clearDisplay();
 }
 
 function clearDisplay() {
   display.value = 0;
   updateCurrentValue();
+}
+
+function useOperators() {
+  if(this.textContent === 'AC') clearDisplay();
+  console.log(this.value);
 }
