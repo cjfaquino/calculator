@@ -66,16 +66,22 @@ function pressButton(e) {
 
   if(action === 'decimal') {
     console.log('decimal key');
+
   }
   if(action === 'negative') {
     console.log('plus minus key');
   }
+
   if(action === 'delete') {
     console.log('delete key');
+      display.value = display.value.slice(0, -1)
   }
+
   if(action === 'AC') {
     console.log('AC key');
+    display.value = 0;
   }
+
   if(action === 'equals') {
     console.log('equals key');
   }
