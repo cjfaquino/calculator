@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 .wrapper {
@@ -7,12 +8,16 @@
   margin: 0 auto;
 }
 #display {
+  margin-bottom: 5px;
   width: 100%;
   text-align: right;
+  height: 100px;
 }
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  height: 500px;
 }
 
 .btnClr,
