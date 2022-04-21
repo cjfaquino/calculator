@@ -34,10 +34,13 @@ function updateCurrentValue() {
   return currentValue
 }
 
-function populateDisplay() {
-    if(display.value === '0') display.value = this.textContent
-    else display.value += this.textContent;
-    updateCurrentValue();
+function populateDisplay(num) {
+    console.log(num);
+    if (display.value === '0') {
+      display.value = num;
+    } else {
+      display.value += num;
+    }
 }
 
 function clearDisplay() {
@@ -49,8 +52,9 @@ function pressButton(e) {
   const button = e.target
   const action = e.target.value
 
-  if(button.className.includes('numbers')){
+  if(button.className.includes('numbers') && display.value.length < 9){
     console.log('number key')
+    populateDisplay(button.textContent);
   }
 
   if(action === 'add' ||
