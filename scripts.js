@@ -123,6 +123,8 @@ function pressButton(e) {
     if(action === 'AC') {
       console.log('AC key');
       display.textContent = 0;
+      firstValue = '';
+      secondValue = '';
     }
 
     if(action === 'equals') {
