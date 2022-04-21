@@ -39,13 +39,13 @@ function updateCurrentValue() {
   return currentValue
 }
 
-function populateDisplay(num) {
-  console.log(num);
+function populateDisplay(input) {
+  console.log(input);
   const previousKeyType = calculator.dataset.previousKeyType
     if (display.textContent === '0' || previousKeyType === 'operator') {
-      display.textContent = num;
+      display.textContent = input;
     } else {
-      display.textContent += num;
+      display.textContent += input;
     }
 }
 
