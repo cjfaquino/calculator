@@ -72,6 +72,14 @@ function pressButton(e) {
       action === 'multiply' ||
       action === 'divide'){
         console.log('operator key');
+        
+        const lastOperator = operator;
+        secondValue = display.textContent
+
+        if(firstValue && lastOperator) {
+          display.textContent = operate(operator, firstValue, secondValue)
+        }
+
         button.classList.add('pressed')
         calculator.dataset.previousKeyType = 'operator'
         firstValue = display.textContent;
