@@ -62,6 +62,25 @@ button {
   transform: translate3d(3px, 3px, 0);
 }
 
+.plus {
+  font-size: 30px;
+  position: relative;
+  bottom: 12px;
+  left: 12px;
+}
+
+.slash {
+    display: inline-block;
+    transform: rotate(20deg) translateX(-3px);
+}
+
+.minus {
+  font-size: 35px;
+  position: relative;
+  top: 1px;
+  right: 13px;
+}
+
 .operators,
 .btnEq {
   background-color: rgb(255, 149, 0);
