@@ -68,6 +68,9 @@ function pressButton(e) {
 
   if(action === 'decimal') {
     console.log('decimal key');
+    if(!display.textContent.includes('.')){
+      display.textContent = display.textContent + '.'
+    }
   }
   
   if(action === 'negative') {
