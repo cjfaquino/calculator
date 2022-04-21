@@ -101,7 +101,7 @@ buttons.addEventListener('click', e => {
         else display.textContent = 0;
       }
   
-      if(action === 'AC') {
+      if(action === 'clear') {
 
         display.textContent = 0;
         firstValue = '';
