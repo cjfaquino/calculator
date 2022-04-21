@@ -100,14 +100,23 @@ buttons.addEventListener('click', e => {
           display.textContent = display.textContent.slice(0, -1)
         else display.textContent = 0;
       }
-  
+      
+      if(action !== 'clear') {
+        const clear = buttons.querySelector('.btnClr')
+        clear.textContent = 'CE'
+      }
+      
       if(action === 'clear') {
+        if(button.textContent === 'AC') {
+          firstValue = '';
+          secondValue = '';
+          storedValue = '';
+          storedSecond = '';
+          calculator.dataset.previousKeyType = ''
+        } else button.textContent = 'AC';
 
         display.textContent = 0;
-        firstValue = '';
-        secondValue = '';
-        storedValue = '';
-        storedSecond = '';
+        calculator.dataset.previousKeyType = 'clear'
       }
   
       if(action === 'equals') {
