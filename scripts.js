@@ -93,7 +93,7 @@ function pressButton(e) {
       return
     }
     else if(isNegative) {
-      display.textContent = display.textContent.substr(1);
+      display.textContent = display.textContent.substring(1);
       isNegative = false;
       return
     }
