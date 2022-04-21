@@ -47,8 +47,9 @@ function pressKey(e) {
     Array.from(button.parentNode.children)
         .forEach(btn => btn.classList.remove('pressed'))
 
-    if(!action && button.className.includes('numbers')){
-      populateDisplay(button.textContent);
+    if(!action && (e.keyCode >= 48 && e.keyCode <= 57 || button.className.includes('numbers'))){
+      const num = e.key || button.textContent;
+      populateDisplay(num);
       calculator.dataset.previousKeyType = 'number'
     }
 
