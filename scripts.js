@@ -34,7 +34,8 @@ function populateDisplay(input) {
 
 function pressKey(e) {
   if(e.target.matches('button') ||
-    e.keyCode >= 48 && e.keyCode <= 57 || //number keys
+    e.keyCode >= 48 && e.keyCode <= 57 ||  //number keys
+    e.keyCode >= 96 && e.keyCode <= 111 || //numpad support
     e.keyCode === 8 ||                     //backspace
     e.keyCode === 190 ||                   //decimal
     e.keyCode === 189 ||                   //minus
