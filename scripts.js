@@ -55,65 +55,72 @@ function clearDisplay() {
 }
 
 function pressButton(e) {
-  const button = e.target
-  const action = e.target.value
+  if(e.target.matches('button')) {
+    const button = e.target
+    const action = e.target.value
+    const previousKeyType = calculator.dataset.previousKeyType
+    Array.from(button.parentNode.children)
+        .forEach(btn => btn.classList.remove('pressed'))
 
-  Array.from(button.parentNode.children)
-      .forEach(btn => btn.classList.remove('pressed'))
-
-  if(button.className.includes('numbers') && display.textContent.length < 9){
-    console.log('number key')
-    populateDisplay(button.textContent);
-    calculator.dataset.previousKeyType = 'number'
-  }
-
-  if(action === 'add' ||
-     action === 'subtract' ||
-     action === 'multiply' ||
-     action === 'divide'){
-       console.log('operator key');
-       button.classList.add('pressed')
-       calculator.dataset.previousKeyType = 'operator'
-       firstValue = display.textContent;
-       operator = action;
-     }
-
-  if(action === 'decimal') {
-    console.log('decimal key');
-    if(!display.textContent.includes('.')){
-      display.textContent = display.textContent + '.'
+    if(!action && display.textContent.length < 9){
+      console.log('number key')
+      populateDisplay(button.textContent);
+      calculator.dataset.previousKeyType = 'number'
     }
-  }
-  
-  if(action === 'negative') {
-    console.log('plus minus key');
-    if(!isNegative && Number(display.textContent) > 0) {
-      display.textContent = '-' + display.textContent
-      isNegative = true;
-      return
+
+    if(action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide'){
+        console.log('operator key');
+        button.classList.add('pressed')
+        calculator.dataset.previousKeyType = 'operator'
+        firstValue = display.textContent;
+        operator = action;
+      }
+
+    if(action === 'decimal') {
+      console.log('decimal key');
+      
+      if(!display.textContent.includes('.')){
+        display.textContent = display.textContent + '.'
+      } else if (calculator.dataset.previousKeyType === 'operator') {
+        display.textContent = '0.'
+      }
+      calculator.dataset.previousKeyType = 'decimal'
     }
-    else if(isNegative) {
-      display.textContent = display.textContent.substring(1);
-      isNegative = false;
-      return
+    
+    if(action === 'negative') {
+      console.log('plus minus key');
+      if(!isNegative && Number(display.textContent) > 0) {
+        display.textContent = '-' + display.textContent
+        isNegative = true;
+        return
+      }
+      else if(isNegative) {
+        display.textContent = display.textContent.substring(1);
+        isNegative = false;
+        return
+      }
     }
-  }
 
-  if(action === 'delete') {
-    console.log('delete key');
-    if(display.textContent.length > 1)
-      display.textContent = display.textContent.slice(0, -1)
-    else display.textContent = 0;
-  }
+    if(action === 'delete') {
+      console.log('delete key');
+      if(display.textContent.length > 1)
+        display.textContent = display.textContent.slice(0, -1)
+      else display.textContent = 0;
+    }
 
-  if(action === 'AC') {
-    console.log('AC key');
-    display.textContent = 0;
-  }
+    if(action === 'AC') {
+      console.log('AC key');
+      display.textContent = 0;
+    }
 
-  if(action === 'equals') {
-    console.log('equals key');
-    secondValue = display.textContent;
-    display.textContent = operate(operator, firstValue, secondValue)
+    if(action === 'equals') {
+      console.log('equals key');
+      secondValue = display.textContent;
+      display.textContent = operate(operator, firstValue, secondValue)
+    }
+    console.log(previousKeyType);
   }
 }
