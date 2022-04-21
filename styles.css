@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-size: 30px;
+  font-size: 40px;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
@@ -55,6 +55,11 @@ button {
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   height: 500px;
+}
+
+.buttons>*:active {
+  filter: brightness(1.5);
+  transform: translate3d(3px, 3px, 0);
 }
 
 .operators,
