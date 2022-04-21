@@ -3,11 +3,14 @@ const display = document.getElementById('display');
 const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', pressButton)
 
+let firstValue;
+let secondValue;
+let operator;
 let isNegative = false;
 let currentValue = display.textContent;
 
 function add(a, b) {
-  return a + b
+  return Number(a) + Number(b)
 }
 
 function subtract(a, b) {
@@ -71,6 +74,8 @@ function pressButton(e) {
        console.log('operator key');
        button.classList.add('pressed')
        calculator.dataset.previousKeyType = 'operator'
+       firstValue = display.textContent;
+       operator = action;
      }
 
   if(action === 'decimal') {
@@ -108,5 +113,7 @@ function pressButton(e) {
 
   if(action === 'equals') {
     console.log('equals key');
+    secondValue = display.textContent;
+    display.textContent = operate(operator, firstValue, secondValue)
   }
 }
