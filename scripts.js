@@ -4,7 +4,7 @@ buttons.addEventListener('click', pressButton)
 
 
 let isNegative = false;
-let currentValue = display.value;
+let currentValue = display.textContent;
 
 function add(a, b) {
   return a + b
@@ -31,22 +31,22 @@ function operate(operator, currentValue, nextValue) {
 
 function updateCurrentValue() {
   
-  currentValue = Number(display.value);
+  currentValue = Number(display.textContent);
   console.log('This is current value: ' + currentValue);
   return currentValue
 }
 
 function populateDisplay(num) {
   console.log(num);
-    if (display.value === '0') {
-      display.value = num;
+    if (display.textContent === '0') {
+      display.textContent = num;
     } else {
-      display.value += num;
+      display.textContent += num;
     }
 }
 
 function clearDisplay() {
-  display.value = 0;
+  display.textContent = 0;
   updateCurrentValue();
 }
 
@@ -54,7 +54,7 @@ function pressButton(e) {
   const button = e.target
   const action = e.target.value
 
-  if(button.className.includes('numbers') && display.value.length < 9){
+  if(button.className.includes('numbers') && display.textContent.length < 9){
     console.log('number key')
     populateDisplay(button.textContent);
   }
@@ -72,13 +72,13 @@ function pressButton(e) {
   
   if(action === 'negative') {
     console.log('plus minus key');
-    if(!isNegative && Number(display.value) > 0) {
-      display.value = '-' + display.value
+    if(!isNegative && Number(display.textContent) > 0) {
+      display.textContent = '-' + display.textContent
       isNegative = true;
       return
     }
     else if(isNegative) {
-      display.value = display.value.substr(1);
+      display.textContent = display.textContent.substr(1);
       isNegative = false;
       return
     }
@@ -86,14 +86,14 @@ function pressButton(e) {
 
   if(action === 'delete') {
     console.log('delete key');
-    if(display.value.length > 1)
-      display.value = display.value.slice(0, -1)
-    else display.value = 0;
+    if(display.textContent.length > 1)
+      display.textContent = display.textContent.slice(0, -1)
+    else display.textContent = 0;
   }
 
   if(action === 'AC') {
     console.log('AC key');
-    display.value = 0;
+    display.textContent = 0;
   }
 
   if(action === 'equals') {
