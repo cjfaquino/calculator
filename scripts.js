@@ -110,19 +110,19 @@ function pressKey(e) {
       else display.textContent = 0;
     }
     
+    const clear = buttons.querySelector('.btnClr')
     if(action !== 'clear') {
-      const clear = buttons.querySelector('.btnClr')
       clear.textContent = 'CE'
     }
     
-    if(action === 'clear') {
-      if(button.textContent === 'AC') {
+    if(e.keyCode === 27 || action === 'clear') {
+      if(clear.textContent === 'AC') {
         firstValue = '';
         secondValue = '';
         storedValue = '';
         storedSecond = '';
         calculator.dataset.previousKeyType = ''
-      } else button.textContent = 'AC';
+      } else clear.textContent = 'AC';
 
       display.textContent = 0;
       calculator.dataset.previousKeyType = 'clear'
