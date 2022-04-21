@@ -1,7 +1,7 @@
+const calculator = document.querySelector('.wrapper')
 const display = document.getElementById('display');
 const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', pressButton)
-
 
 let isNegative = false;
 let currentValue = display.textContent;
@@ -38,7 +38,8 @@ function updateCurrentValue() {
 
 function populateDisplay(num) {
   console.log(num);
-    if (display.textContent === '0') {
+  const previousKeyType = calculator.dataset.previousKeyType
+    if (display.textContent === '0' || previousKeyType === 'operator') {
       display.textContent = num;
     } else {
       display.textContent += num;
@@ -54,9 +55,13 @@ function pressButton(e) {
   const button = e.target
   const action = e.target.value
 
+  Array.from(button.parentNode.children)
+      .forEach(btn => btn.classList.remove('pressed'))
+
   if(button.className.includes('numbers') && display.textContent.length < 9){
     console.log('number key')
     populateDisplay(button.textContent);
+    calculator.dataset.previousKeyType = 'number'
   }
 
   if(action === 'add' ||
@@ -64,6 +69,8 @@ function pressButton(e) {
      action === 'multiply' ||
      action === 'divide'){
        console.log('operator key');
+       button.classList.add('pressed')
+       calculator.dataset.previousKeyType = 'operator'
      }
 
   if(action === 'decimal') {
