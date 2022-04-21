@@ -1,10 +1,7 @@
 const display = document.getElementById('display');
-const numbers = document.querySelectorAll('.numbers');
-const operators = document.querySelectorAll('.operators')
+const buttons = document.querySelector('.buttons');
+buttons.addEventListener('click', testing)
 
-numbers.forEach(button => button.addEventListener('click', populateDisplay))
-operators.forEach(button => button.addEventListener('click', useOperators))
-display.addEventListener('input', updateCurrentValue)
 
 let currentValue = display.value;
 
@@ -32,8 +29,9 @@ function operate(operator, currentValue, nextValue) {
 }
 
 function updateCurrentValue() {
-  currentValue = display.value;
-  console.log(currentValue);
+  currentValue = Number(display.value);
+  console.log('This is current value: ' + currentValue);
+  return currentValue
 }
 
 function populateDisplay() {
@@ -47,7 +45,3 @@ function clearDisplay() {
   updateCurrentValue();
 }
 
-function useOperators() {
-  if(this.value === 'AC') clearDisplay();
-  console.log(this.value);
-}
