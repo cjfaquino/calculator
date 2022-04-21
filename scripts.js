@@ -139,6 +139,8 @@ function pressButton(e) {
       display.textContent = 0;
       firstValue = '';
       secondValue = '';
+      storedValue = '';
+      storedSecond = '';
     }
 
     if(action === 'equals') {
