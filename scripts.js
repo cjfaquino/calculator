@@ -34,19 +34,21 @@ function populateDisplay(input) {
 
 function pressKey(e) {
   if(e.target.matches('button') ||
-    e.keyCode >= 48 && e.keyCode <= 57 ||  //number keys
-    e.keyCode >= 96 && e.keyCode <= 111 || //numpad support
-    e.keyCode === 8 ||                     //backspace
-    e.keyCode === 190 ||                   //decimal
-    e.keyCode === 189 ||                   //minus
-    e.keyCode === 187 ||                   //equals + plus
-    e.keyCode === 13 ||                    //enter
-    e.keyCode === 27)                      //escape
+  e.keyCode >= 48 && e.keyCode <= 57 ||  //number keys
+  e.keyCode >= 96 && e.keyCode <= 111 || //numpad support
+  e.key === 'Backspace' ||
+  e.key === "Enter" ||
+  e.key === '.' ||
+  e.key === '-' ||
+  e.keyCode === 187 ||                   //equals + plus
+  e.keyCode === 27)                      //escape
   {
-    const button = e.target
-    const action = e.target.value
-    Array.from(button.parentNode.children)
-        .forEach(btn => btn.classList.remove('pressed'))
+    const key = document.querySelector(`button[data-key="${e.key}"]`);
+    const button = e.target;
+    let action = button.value;
+    if (key) action = key.value;
+    const operatorBtns = calculator.querySelectorAll('.operators');
+    operatorBtns.forEach(btn => btn.classList.remove('pressed'))
 
     if(!action && (e.keyCode >= 48 && e.keyCode <= 57 || button.className.includes('numbers'))){
       const num = e.key || button.textContent;
@@ -75,12 +77,12 @@ function pressKey(e) {
         }
 
         button.classList.add('pressed')
+        if(key) key.classList.add('pressed')
         calculator.dataset.previousKeyType = 'operator'
         lastOperator = action;
       }
 
-    if(e.keyCode === 190 || action === 'decimal') {
-      
+    if(action === 'decimal') {
       if(!display.textContent.includes('.')){
         display.textContent = display.textContent + '.'
       }
@@ -92,7 +94,6 @@ function pressKey(e) {
     }
     
     if(action === 'negative') {
-
       if(!isNegative && Number(display.textContent) > 0) {
         display.textContent = '-' + display.textContent
         isNegative = true;
@@ -105,8 +106,7 @@ function pressKey(e) {
       }
     }
 
-    if(e.keyCode === 8 || action === 'delete') {
-
+    if(action === 'delete') {
       if(display.textContent.length > 1)
         display.textContent = display.textContent.slice(0, -1)
       else display.textContent = 0;
@@ -117,7 +117,7 @@ function pressKey(e) {
       clear.textContent = 'CE'
     }
     
-    if(e.keyCode === 27 || action === 'clear') {
+    if(action === 'clear') {
       if(clear.textContent === 'AC') {
         firstValue = '';
         secondValue = '';
@@ -130,8 +130,7 @@ function pressKey(e) {
       calculator.dataset.previousKeyType = 'clear'
     }
 
-    if(e.keyCode === 13 || action === 'equals') {
-
+    if(e.key === '=' || action === 'equals') {
       firstValue = storedValue;
       operator = lastOperator;
       secondValue = display.textContent;
