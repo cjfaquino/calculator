@@ -11,12 +11,12 @@ let lastOperator;
 let isNegative = false;
 
 function operate(operator, firstValue, secondValue) {
-  firstValue = Number(firstValue);
-  secondValue = Number(secondValue);
-  if(operator === 'add') return firstValue + secondValue;
-  if(operator === 'subtract') return firstValue - secondValue;
-  if(operator === 'multiply') return firstValue * secondValue;
-  if(operator === 'divide') return firstValue / secondValue;
+  const first = Number(firstValue);
+  const second = Number(secondValue);
+  if(operator === 'add') return first + second;
+  if(operator === 'subtract') return first - second;
+  if(operator === 'multiply') return first * second;
+  if(operator === 'divide') return first / second;
 }
 
 function populateDisplay(input) {
