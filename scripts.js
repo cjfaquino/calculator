@@ -128,7 +128,7 @@ function pressKey(e) {
       calculator.dataset.previousKeyType = 'clear'
     }
 
-    if(action === 'equals') {
+    if(e.keyCode === 13 || action === 'equals') {
 
       firstValue = storedValue;
       operator = lastOperator;
