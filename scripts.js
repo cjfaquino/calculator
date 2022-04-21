@@ -5,7 +5,10 @@ buttons.addEventListener('click', pressButton)
 
 let firstValue;
 let secondValue;
+let storedValue;
+let storedSecond;
 let operator;
+let lastOperator;
 let isNegative = false;
 let currentValue = display.textContent;
 
@@ -73,17 +76,24 @@ function pressButton(e) {
       action === 'divide'){
         console.log('operator key');
         
-        const lastOperator = operator;
+        firstValue = storedValue;
+        operator = lastOperator;
         secondValue = display.textContent
 
-        if(firstValue && lastOperator) {
-          display.textContent = operate(operator, firstValue, secondValue)
+        if(firstValue && 
+           operator &&
+           calculator.dataset.previousKeyType !== 'operator') {
+            const calculatedValue = operate(operator, firstValue, secondValue);
+             display.textContent = calculatedValue;
+             storedValue = calculatedValue;
+        } else {
+          console.log('hello');
+          storedValue = display.textContent;
         }
 
         button.classList.add('pressed')
         calculator.dataset.previousKeyType = 'operator'
-        firstValue = display.textContent;
-        operator = action;
+        lastOperator = action;
       }
 
     if(action === 'decimal') {
@@ -129,8 +139,19 @@ function pressButton(e) {
 
     if(action === 'equals') {
       console.log('equals key');
+      firstValue = storedValue;
+      operator = lastOperator;
       secondValue = display.textContent;
-      display.textContent = operate(operator, firstValue, secondValue)
+      if(firstValue) {
+        if(calculator.dataset.previousKeyType === 'equals') {
+          firstValue = display.textContent;
+          secondValue = storedSecond;
+          console.log('isthisworking');
+        }
+        display.textContent = operate(operator, firstValue, secondValue);
+      }
+      storedSecond = secondValue;
+      calculator.dataset.previousKeyType = 'equals'
     }
   }
 }
