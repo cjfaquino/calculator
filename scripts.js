@@ -3,6 +3,7 @@ const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', pressButton)
 
 
+let isNegative = false;
 let currentValue = display.value;
 
 function add(a, b) {
@@ -67,10 +68,20 @@ function pressButton(e) {
 
   if(action === 'decimal') {
     console.log('decimal key');
-
   }
+  
   if(action === 'negative') {
     console.log('plus minus key');
+    if(!isNegative && Number(display.value) > 0) {
+      display.value = '-' + display.value
+      isNegative = true;
+      return
+    }
+    else if(isNegative) {
+      display.value = display.value.substr(1);
+      isNegative = false;
+      return
+    }
   }
 
   if(action === 'delete') {
