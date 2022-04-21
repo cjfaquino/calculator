@@ -9,8 +9,8 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 99vh
+  align-items: flex-end;
+  height: 99vh;
 }
 
 body,
@@ -36,15 +36,14 @@ button {
 
 #display {
   border: none;
-  margin-top: 100px;
   margin-bottom: 5px;
   width: 100%;
   text-align: right;
-  height: 100px;
+  height: fit-content;
   color: white;
   font-size: 2em;
+  overflow-wrap: break-word;
 }
-
 
 .numbers {
   color: white;
@@ -55,6 +54,7 @@ button {
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   height: 500px;
+  margin-bottom: 25vh;
 }
 
 .buttons>*:active {

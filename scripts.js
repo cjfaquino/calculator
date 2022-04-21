@@ -38,7 +38,7 @@ buttons.addEventListener('click', e => {
       Array.from(button.parentNode.children)
           .forEach(btn => btn.classList.remove('pressed'))
   
-      if(!action && display.textContent.length < 9){
+      if(!action){
         populateDisplay(button.textContent);
         calculator.dataset.previousKeyType = 'number'
       }
