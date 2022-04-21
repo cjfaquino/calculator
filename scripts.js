@@ -103,8 +103,7 @@ function pressKey(e) {
       }
     }
 
-    if(action === 'delete'|| 
-       e.key === 'Backspace') {
+    if(e.keyCode === 8 || action === 'delete') {
 
       if(display.textContent.length > 1)
         display.textContent = display.textContent.slice(0, -1)
