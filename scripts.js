@@ -77,7 +77,7 @@ function pressKey(e) {
         lastOperator = action;
       }
 
-    if(action === 'decimal') {
+    if(e.keyCode === 190 || action === 'decimal') {
       
       if(!display.textContent.includes('.')){
         display.textContent = display.textContent + '.'
