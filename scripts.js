@@ -29,13 +29,14 @@ function operate(operator, currentValue, nextValue) {
 }
 
 function updateCurrentValue() {
+  
   currentValue = Number(display.value);
   console.log('This is current value: ' + currentValue);
   return currentValue
 }
 
 function populateDisplay(num) {
-    console.log(num);
+  console.log(num);
     if (display.value === '0') {
       display.value = num;
     } else {
@@ -74,7 +75,9 @@ function pressButton(e) {
 
   if(action === 'delete') {
     console.log('delete key');
+    if(display.value.length > 1)
       display.value = display.value.slice(0, -1)
+    else display.value = 0;
   }
 
   if(action === 'AC') {
