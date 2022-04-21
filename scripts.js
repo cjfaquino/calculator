@@ -1,6 +1,6 @@
 const display = document.getElementById('display');
 const buttons = document.querySelector('.buttons');
-buttons.addEventListener('click', testing)
+buttons.addEventListener('click', pressButton)
 
 
 let currentValue = display.value;
@@ -45,3 +45,34 @@ function clearDisplay() {
   updateCurrentValue();
 }
 
+function pressButton(e) {
+  const button = e.target
+  const action = e.target.value
+
+  if(button.className.includes('numbers')){
+    console.log('number key')
+  }
+
+  if(action === 'add' ||
+     action === 'subtract' ||
+     action === 'multiply' ||
+     action === 'divide'){
+       console.log('operator key');
+     }
+
+  if(action === 'decimal') {
+    console.log('decimal key');
+  }
+  if(action === 'negative') {
+    console.log('plus minus key');
+  }
+  if(action === 'delete') {
+    console.log('delete key');
+  }
+  if(action === 'AC') {
+    console.log('AC key');
+  }
+  if(action === 'equals') {
+    console.log('equals key');
+  }
+}
