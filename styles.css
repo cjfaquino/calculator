@@ -24,6 +24,10 @@ button {
   color: white;
 }
 
+.operators.pressed {
+  color: rgb(255, 149, 0);
+  background-color: white;
+}
 
 .wrapper {
   width: 400px;
