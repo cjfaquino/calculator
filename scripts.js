@@ -45,7 +45,9 @@ function updateCurrentValue() {
 function populateDisplay(input) {
   console.log(input);
   const previousKeyType = calculator.dataset.previousKeyType
-    if (display.textContent === '0' || previousKeyType === 'operator') {
+    if (display.textContent === '0' || 
+        previousKeyType === 'operator' ||
+        previousKeyType === 'equals') {
       display.textContent = input;
     } else {
       display.textContent += input;
@@ -82,7 +84,8 @@ function pressButton(e) {
 
         if(firstValue && 
            operator &&
-           calculator.dataset.previousKeyType !== 'operator') {
+           calculator.dataset.previousKeyType !== 'operator' &&
+           calculator.dataset.previousKeyType !== 'equals') {
             const calculatedValue = operate(operator, firstValue, secondValue);
              display.textContent = calculatedValue;
              storedValue = calculatedValue;
@@ -102,7 +105,8 @@ function pressButton(e) {
       if(!display.textContent.includes('.')){
         display.textContent = display.textContent + '.'
       }
-      if (calculator.dataset.previousKeyType === 'operator') {
+      if (calculator.dataset.previousKeyType === 'operator' ||
+          calculator.dataset.previousKeyType === 'equals') {
         console.log('test');
         display.textContent = '0.'
       }
