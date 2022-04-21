@@ -58,7 +58,6 @@ function pressButton(e) {
   if(e.target.matches('button')) {
     const button = e.target
     const action = e.target.value
-    const previousKeyType = calculator.dataset.previousKeyType
     Array.from(button.parentNode.children)
         .forEach(btn => btn.classList.remove('pressed'))
 
@@ -84,7 +83,9 @@ function pressButton(e) {
       
       if(!display.textContent.includes('.')){
         display.textContent = display.textContent + '.'
-      } else if (calculator.dataset.previousKeyType === 'operator') {
+      }
+      if (calculator.dataset.previousKeyType === 'operator') {
+        console.log('test');
         display.textContent = '0.'
       }
       calculator.dataset.previousKeyType = 'decimal'
@@ -121,6 +122,5 @@ function pressButton(e) {
       secondValue = display.textContent;
       display.textContent = operate(operator, firstValue, secondValue)
     }
-    console.log(previousKeyType);
   }
 }
