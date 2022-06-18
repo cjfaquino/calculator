@@ -9,7 +9,7 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 99vh;
 }
@@ -40,6 +40,10 @@ button {
 }
 
 #display {
+  position: absolute;
+  top: -240px;
+  padding: 20px 0;
+  margin-top: 50px;
   border: none;
   margin-bottom: 5px;
   width: 100%;
@@ -59,7 +63,6 @@ button {
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   height: 500px;
-  margin-bottom: 20vh;
 }
 
 .buttons>*:active {
