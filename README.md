@@ -1,16 +1,12 @@
-# calculator
+# Calculator - things I focused on this project
 
-#Things I focused on this project:
-##Basic operators 
-  add
-  subtract
-  multiple
-  divide
-##String together several operations
-  After first calculation, can press an operator and another number to continue calculation
-  For example, `12 + 7 - 5 * 3 = should yield 42`
-##Multiple equals key calculations
-  After first calculation, can press equals key to repeat last operator and number repeatedly
-  For example, `12 - 2 = = = should yield 6`
+### Basic operators 
 
-##Adding keyboard + numpad support
+### String together several operations
+  - After first calculation, can press an operator and another number to continue calculation
+  - For example, `12 + 7 - 5 * 3 = should yield 42`
+### Multiple equals key calculations
+  - After first calculation, can press equals key to repeat last operator and number repeatedly
+  - For example, `12 - 2 = = = should yield 6`
+
+### Adding keyboard + numpad support
