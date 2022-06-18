@@ -155,7 +155,7 @@ button {
 .btn0 {
   grid-column: span 2;
   order: 18;
-  padding-left: 40px;
+  padding-left: 35px;
   text-align: left;
 }
 
