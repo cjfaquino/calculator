@@ -19,6 +19,10 @@ body,
   background-color: black;
 }
 
+.calculator {
+  transform: scale(.8);
+}
+
 button {
   border: none;
   border-radius: 50px;
