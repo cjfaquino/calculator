@@ -1,3 +1,8 @@
+:root {
+  --calc-color: black;
+  --pad: 30px;
+}
+
 * {
   box-sizing: border-box;
   font-size: 40px;
@@ -7,21 +12,56 @@
 }
 
 body {
+  background-color: grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 99vh;
-}
-
-body,
-#display {
-  background-color: black;
+  height: 80vh;
 }
 
 .calculator {
+  padding: var(--pad);
   transform: scale(.8);
+  border-radius: 50px;
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
+
+.wrapper {
+  width: calc(400px + var(--pad) * 2);
+}
+
+#display {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: right;
+  height: 300px;
+  color: white;
+  font-size: 1.5em;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+}
+
+@media (max-width:481px)  { 
+  /* smartphones, iPhone, portrait 480x320 phones */ 
+  body {
+    background-color: black;
+    justify-content: flex-start;
+  }
+
+  .calculator {
+    border-radius: 0;
+    padding: 0 30px;
+  }
+
+  #display {
+    height: 190px;
+  }
+} 
 
 button {
   border: none;
@@ -35,24 +75,7 @@ button {
   background-color: white;
 }
 
-.wrapper {
-  width: 400px;
-}
 
-#display {
-  position: absolute;
-  top: -240px;
-  padding: 20px 0;
-  margin-top: 50px;
-  border: none;
-  margin-bottom: 5px;
-  width: 100%;
-  text-align: right;
-  height: fit-content;
-  color: white;
-  font-size: 1.5em;
-  overflow-wrap: break-word;
-}
 
 .numbers {
   color: white;
