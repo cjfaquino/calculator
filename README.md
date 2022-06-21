@@ -1,4 +1,4 @@
-# Calculator - things I focused on this project
+# Calculator
 
 ### Basic operators 
 
